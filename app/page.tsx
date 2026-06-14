@@ -128,7 +128,7 @@ const doctors = [
     name: "Dr.Supriya Pawar",
     qual: "Chief Medical Officer(C.M.O)",
     spec: "Ayurvedic Women's Health Specialist",
-    img: "/images/doctor.jpg",
+    img: "/images/Doctor.jpg",
   },
 ];
 
