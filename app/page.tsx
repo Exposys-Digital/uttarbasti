@@ -325,26 +325,21 @@ export default function UttarBastiPage() {
           </section>
 
         {/* ===== SECTION 5: BENEFITS ===== */}
-        <section className={`${styles.benefitsSection} ${styles.pinkBg}`} aria-labelledby="benefits-heading">
-          <div className={styles.container}>
-            <h2 id="benefits-heading" className={styles.sectionTitle}>Benefits of Professional Ayurvedic Care</h2>
-            <p className={styles.sectionSub}>
-              Choosing a clinical, doctor-guided approach ensures safety, personalization, and the best possible wellness outcomes.
-            </p>
-            <div className={styles.benefitsGrid}>
-              {benefits.map((b) => (
-                <div key={b.label} className={styles.benefitBox}>
-                  <h4 className={styles.benefitLabel}>{b.label}</h4>
-                  {benefits.map((b) => (
-                    <div key={b.label} className={styles.benefitBox}>
-                      <h4 className={styles.benefitLabel}>{b.label}</h4>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+<section className={`${styles.benefitsSection} ${styles.pinkBg}`} aria-labelledby="benefits-heading">
+  <div className={styles.container}>
+    <h2 id="benefits-heading" className={styles.sectionTitle}>Benefits of Professional Ayurvedic Care</h2>
+    <p className={styles.sectionSub}>
+      Choosing a clinical, doctor-guided approach ensures safety, personalization, and the best possible wellness outcomes.
+    </p>
+    <div className={styles.benefitsGrid}>
+      {benefits.map((b) => (
+        <div key={b.label} className={styles.benefitBox}>
+          <h4 className={styles.benefitLabel}>{b.label}</h4>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* ===== SECTION 6: GALLERY ===== */}
         <section className={styles.gallerySection} aria-labelledby="gallery-heading">
