@@ -335,7 +335,11 @@ export default function UttarBastiPage() {
               {benefits.map((b) => (
                 <div key={b.label} className={styles.benefitBox}>
                   <h4 className={styles.benefitLabel}>{b.label}</h4>
-                  <p className={styles.benefitDesc}>{b.desc}</p>
+                  {benefits.map((b) => (
+                    <div key={b.label} className={styles.benefitBox}>
+                      <h4 className={styles.benefitLabel}>{b.label}</h4>
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
