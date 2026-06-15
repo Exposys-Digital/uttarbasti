@@ -89,14 +89,14 @@ const faqs = [
 ];
 
 const galleryImages = [
-  { src: "/images/gallery-reception.jpg", alt: "SNDH Care Reception Area" },
-  { src: "/images/gallery-consultation.jpg", alt: "Consultation Room" },
-  { src: "/images/gallery-therapy.jpg", alt: "Therapy Room" },
-  { src: "/images/gallery-panchakarma.jpg", alt: "Panchakarma Setup" },
-  { src: "/images/gallery-lounge.jpg", alt: "Waiting Lounge" },
-  { src: "/images/gallery-team.jpg", alt: "Our Team" },
-  { src: "/images/gallery-herbs.jpg", alt: "Ayurvedic Herbs" },
-  { src: "/images/gallery-clinic.jpg", alt: "SNDH Care Clinic" },
+  { src: "/images/gallery1.jpg", alt: "SNDH Care Reception Area" },
+  { src: "/images/gallery2.jpg", alt: "Consultation Room" },
+  { src: "/images/gallery3.jpg", alt: "Therapy Room" },
+  { src: "/images/gallery4.jpg", alt: "Panchakarma Setup" },
+  { src: "/images/gallery5.jpg", alt: "Waiting Lounge" },
+  { src: "/images/gallery6.jpg", alt: "Our Team" },
+  { src: "/images/gallery7.jpg", alt: "Ayurvedic Herbs" },
+  { src: "/images/gallery8.jpg", alt: "SNDH Care Clinic" },
 ];
 
 const doctors = [
@@ -138,18 +138,21 @@ export default function UttarBastiPage() {
       <main className={styles.main}>
 
         {/* ===== SECTION 1: HERO ===== */}
-<section className={styles.hero} aria-label="Hero">
-  <div className={styles.heroInner}>
-    <picture>
-      <source media="(max-width: 600px)" srcSet="/images/HeroSNDHMobileUI.png" />
-      <img
-        src="/images/HeroSNDH.png"
-        alt="SNDH Care Ayurvedic Wellness"
-        className={styles.heroImg}
-      />
-    </picture>
-  </div>
-</section>
+          <section className={styles.hero} aria-label="Hero">
+            <div className={styles.heroInner}>
+              <picture>
+                <source media="(max-width: 600px)" srcSet="/images/HeroSNDHMobileUI.png" />
+                <img
+                  src="/images/HeroSNDH.png"
+                  alt="SNDH Care Ayurvedic Wellness"
+                  className={styles.heroImg}
+                />
+              </picture>
+              <a href="#lead-form" className={styles.heroCta}>
+                Book Day Care
+              </a>
+            </div>
+          </section>
         {/* ===== SECTION 2: ABOUT ===== */}
         <section className={styles.aboutSection} id="about" aria-labelledby="about-heading">
           <div className={styles.container}>
@@ -386,7 +389,7 @@ export default function UttarBastiPage() {
         </section>
 
         {/* ===== SECTION 9: LEAD BLOCK ===== */}
-        <section className={`${styles.leadSection} ${styles.pinkBg}`} aria-label="Book Consultation">
+        <section id="lead-form" className={`${styles.leadSection} ${styles.pinkBg}`} aria-label="Book Consultation">
           <div className={styles.container}>
             <div className={styles.leadInner}>
               <div className={styles.leadText}>
@@ -395,7 +398,7 @@ export default function UttarBastiPage() {
                   Take the first step towards your wellness journey. Our doctors will assess your individual
                   needs and design a personalized care plan for you.
                 </p>
-                <a href="https://wa.me/917230074009" className={styles.btnWhatsapp} target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/917230074009?text=Hi, I wanted to know more about uttarbasti treatment and day care booking" className={styles.btnWhatsapp} target="_blank" rel="noopener noreferrer">
                   {whatsappSvg} WhatsApp Now
                 </a>
               </div>

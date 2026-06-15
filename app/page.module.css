@@ -110,7 +110,7 @@
   height: 60px;
 }
 .logoLink { display: flex; align-items: center; }
-.logoImg { height: 40px; width: auto; }
+.logoImg { height: 70px; width: auto; }
 
 /* ===== SECTION 1: HERO ===== */
 .hero {
@@ -121,6 +121,7 @@
   margin: 0;
 }
 .heroInner {
+  position: relative;
   display: block;
   overflow: hidden;
   width: 100%;
@@ -130,7 +131,6 @@
 .heroInner picture {
   display: block;
   width: 103%;
-  overflow: hidden;
   line-height: 0;
   font-size: 0;
 }
@@ -138,8 +138,29 @@
   width: 100%;
   height: 620px;
   display: block;
-  border-radius: 0;
   object-fit: cover;
+}
+.heroCta {
+  position: absolute;
+  bottom: 12%;
+  left: 16%;
+  background: var(--pink-hot);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(212, 0, 122, 0.4);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  z-index: 10;
+  line-height: 1.2;
+  font-size: 1rem;
+}
+.heroCta:hover {
+  background: #b8006a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 0, 122, 0.5);
 }
 
 @media (max-width: 600px) {
@@ -159,6 +180,18 @@
     display: block;
     margin: 0 !important;
     padding: 0 !important;
+  }
+  .heroCta {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    bottom: 8%;
+    white-space: nowrap;
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+  .heroCta:hover {
+    transform: translateX(-50%) translateY(-2px);
   }
 }
 .main {
@@ -382,7 +415,11 @@
   display: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
+  .imageLeftSection {
+    padding: 0;
+  }
+
   .imageLeftImgDesktop {
     display: none;
   }
@@ -393,7 +430,7 @@
     height: auto;
     max-height: unset;
     object-fit: contain;
-    margin-left: 0;
+    margin-left: -5px;
     margin-right: 0;
   }
 }
@@ -481,7 +518,7 @@
 }
 .doctorImgWrap {
   width: 100%;
-  height: 260px;
+  height: 310px;
   overflow: hidden;
 }
 .doctorImg {
