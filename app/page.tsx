@@ -43,33 +43,15 @@ const structuredData = {
 };
 
 const benefits = [
-  {
-    label: "Supports Women's Reproductive Wellness",
-  },
-  {
-    label: "Promotes Holistic Women's Health",
-  },
-  {
-    label: "Supports Hormonal Balance",
-  },
-  {
-    label: "Encourages Reproductive System Nourishment",
-  },
-  {
-    label: "Personalized Ayurvedic Care",
-  },
-  {
-    label: "Non-Surgical Ayurvedic Approach",
-  },
-  {
-    label: "Doctor-Guided Procedure",
-  },
-  {
-    label: "Day-Care Treatment",
-  },
-  {
-    label: "Integrates with Holistic Wellness Programs",
-  },
+  { label: "Supports Women's Reproductive Wellness" },
+  { label: "Promotes Holistic Women's Health" },
+  { label: "Supports Hormonal Balance" },
+  { label: "Encourages Reproductive System Nourishment" },
+  { label: "Personalized Ayurvedic Care" },
+  { label: "Non-Surgical Ayurvedic Approach" },
+  { label: "Doctor-Guided Procedure" },
+  { label: "Day-Care Treatment" },
+  { label: "Integrates with Holistic Wellness Programs" },
 ];
 
 const whyChoose = [
@@ -119,16 +101,16 @@ const galleryImages = [
 
 const doctors = [
   {
-    name: "Dr. Yogita Jethava",
-    qual: "(Govt. Ayurveda College Vadodara) M.D. (Ayu.)",
-    spec: "Ayurvedic Women's Health Specialist",
-    img: "/images/Dr-Yogita.jpg",
-  },
-  {
     name: "Dr.Supriya Pawar",
-    qual: "Chief Medical Officer(C.M.O)",
+    qual: ["B.A.M.S", "M.S (ENT & HEAD)", "M.S (Gynaec)"],
     spec: "Ayurvedic Women's Health Specialist",
     img: "/images/Doctor.jpg",
+  },
+  {
+    name: "Dr. Yogita Jethava",
+    qual: ["M.D. (Ayu.)"],
+    spec: "Ayurvedic Women's Health Specialist",
+    img: "/images/Dr-Yogita.jpg",
   },
 ];
 
@@ -149,23 +131,25 @@ export default function UttarBastiPage() {
       {/* ===== NAVBAR ===== */}
       <header className={styles.navbar} role="banner">
         <div className={`${styles.container} ${styles.navInner}`}>
-            <img src="/images/sndh-logo.png" alt="SNDH Care Logo" className={styles.logoImg} width={90} height={40} />
+          <img src="/images/sndh-logo.png" alt="SNDH Care Logo" className={styles.logoImg} width={90} height={40} />
         </div>
       </header>
 
-      <main>
+      <main className={styles.main}>
 
         {/* ===== SECTION 1: HERO ===== */}
 <section className={styles.hero} aria-label="Hero">
-  <div className={`${styles.container} ${styles.heroInner}`}>
-    <img
-      src="/images/HeroSNDH.png"
-      alt="SNDH Care Ayurvedic Wellness"
-      className={styles.heroImg}
-    />
+  <div className={styles.heroInner}>
+    <picture>
+      <source media="(max-width: 600px)" srcSet="/images/HeroSNDHMobileUI.png" />
+      <img
+        src="/images/HeroSNDH.png"
+        alt="SNDH Care Ayurvedic Wellness"
+        className={styles.heroImg}
+      />
+    </picture>
   </div>
 </section>
-
         {/* ===== SECTION 2: ABOUT ===== */}
         <section className={styles.aboutSection} id="about" aria-labelledby="about-heading">
           <div className={styles.container}>
@@ -175,9 +159,9 @@ export default function UttarBastiPage() {
                 <div className={styles.aboutText}>
                   <p>
                     <br />Uttar Basti is a specialized Ayurvedic procedure described in
-                          classical Ayurvedic texts. It is performed under the guidance of
-                          qualified Ayurvedic practitioners and may be recommended as part
-                          of an individualized wellness plan after a detailed consultation.
+                    classical Ayurvedic texts. It is performed under the guidance of
+                    qualified Ayurvedic practitioners and may be recommended as part
+                    of an individualized wellness plan after a detailed consultation.
                   </p>
                   <p>
                     At SNDH Care, every individual's health needs are carefully
@@ -261,17 +245,24 @@ export default function UttarBastiPage() {
         </section>
 
         {/* ===== SECTION: IMAGE LEFT ===== */}
-          <section className={styles.imageLeftSection} aria-label="Therapy Visual">
-            <div className={styles.container}>
-              <div className={styles.imageLeftImgWrap}>
-                <img
-                  src="/images/Uttar Basti - SNDH Baner.png"
-                  alt="Uttar Basti procedure setup at SNDH Care"
-                  className={styles.imageLeftImg}
-                />
-              </div>
-            </div>
-          </section>
+<section className={styles.imageLeftSection} aria-label="Therapy Visual">
+  <div className={styles.container}>
+    <div className={styles.imageLeftImgWrap}>
+      {/* Desktop image */}
+      <img
+        src="/images/Uttar Basti-SNDH Banerwebpage.png"
+        alt="Uttar Basti procedure setup at SNDH Care"
+        className={`${styles.imageLeftImg} ${styles.imageLeftImgDesktop}`}
+      />
+      {/* Mobile image */}
+      <img
+        src="/images/Uttar Basti - SNDH Baner.png"
+        alt="Uttar Basti procedure setup at SNDH Care"
+        className={`${styles.imageLeftImg} ${styles.imageLeftImgMobile}`}
+      />
+    </div>
+  </div>
+</section>
 
         {/* ===== SECTION: WELLNESS AREAS ===== */}
         <section className={styles.wellnessSection} aria-labelledby="wellness-heading">
@@ -279,9 +270,9 @@ export default function UttarBastiPage() {
             <h2 id="wellness-heading" className={`${styles.sectionTitle} ${styles.light}`}>
               Common Wellness Areas Where Uttar Basti May Be Considered
             </h2>
-            <p className={`${styles.sectionSub} ${styles.light}`}>
-              Traditional Ayurvedic therapy that supports women's health and restores natural balance.
-            </p>
+            <p className={`${styles.sectionSub} ${styles.light}`} style={{ color: "#ffffff" }}>
+            Traditional Ayurvedic therapy that supports women's health and restores natural balance.
+          </p>
             <div className={styles.wellnessGrid}>
               {[
                 "Women's Reproductive Wellness",
@@ -301,45 +292,49 @@ export default function UttarBastiPage() {
         </section>
 
         {/* ===== SECTION 4: DOCTORS ===== */}
-          <section className={styles.doctorsSection} id="doctors" aria-labelledby="doctors-heading">
-            <div className={styles.container}>
-              <h2 id="doctors-heading" className={`${styles.sectionTitle} ${styles.pinkTitle}`}>Meet Our Doctors</h2>
-              <p className={styles.sectionSub}>
-                Our team of experienced Ayurvedic doctors brings specialized expertise in women's wellness and Panchakarma therapies.
-              </p>
-              <div className={styles.doctorsGrid}>
-                {doctors.map((doc) => (
-                  <div key={doc.name} className={styles.doctorCard}>
-                    <div className={styles.doctorImgWrap}>
-                      <img src={doc.img} alt={`${doc.name} – SNDH Care`} className={styles.doctorImg} />
-                    </div>
-                    <div className={styles.doctorInfo}>
-                      <h3 className={styles.doctorName}>{doc.name}</h3>
-                      <p className={styles.doctorQual}>{doc.qual}</p>
-                      <p className={styles.doctorSpec}>Specialization: {doc.spec}</p>
-                    </div>
+        <section className={styles.doctorsSection} id="doctors" aria-labelledby="doctors-heading">
+          <div className={styles.container}>
+            <h2 id="doctors-heading" className={`${styles.sectionTitle} ${styles.pinkTitle}`}>Meet Our Doctors</h2>
+            <p className={styles.sectionSub}>
+              Our team of experienced Ayurvedic doctors brings specialized expertise in women's wellness and Panchakarma therapies.
+            </p>
+            <div className={styles.doctorsGrid}>
+              {doctors.map((doc) => (
+                <div key={doc.name} className={styles.doctorCard}>
+                  <div className={styles.doctorImgWrap}>
+                    <img src={doc.img} alt={`${doc.name} – SNDH Care`} className={styles.doctorImg} />
                   </div>
-                ))}
-              </div>
+                  <div className={styles.doctorInfo}>
+                    <h3 className={styles.doctorName}>{doc.name}</h3>
+                    <p className={styles.doctorQual}>
+                      {doc.qual.map((q, i) => (
+                        <span key={i} style={{ display: "block" }}>{q}</span>
+                      ))}
+                    </p>
+                    <p className={styles.doctorSpec}>Specialization: {doc.spec}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          </section>
+          </div>
+        </section>
 
         {/* ===== SECTION 5: BENEFITS ===== */}
-<section className={`${styles.benefitsSection} ${styles.pinkBg}`} aria-labelledby="benefits-heading">
-  <div className={styles.container}>
-    <h2 id="benefits-heading" className={styles.sectionTitle}>Benefits of Professional Ayurvedic Care</h2>
-    <p className={styles.sectionSub}>
-      Choosing a clinical, doctor-guided approach ensures safety, personalization, and the best possible wellness outcomes.
-    </p>
-    <div className={styles.benefitsGrid}>
-      {benefits.map((b) => (
-        <div key={b.label} className={styles.benefitBox}>
-          <h4 className={styles.benefitLabel}>{b.label}</h4>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+        <section className={`${styles.benefitsSection} ${styles.pinkBg}`} aria-labelledby="benefits-heading">
+          <div className={styles.container}>
+            <h2 id="benefits-heading" className={styles.sectionTitle}>Benefits of Professional Ayurvedic Care</h2>
+            <p className={styles.sectionSub}>
+              Choosing a clinical, doctor-guided approach ensures safety, personalization, and the best possible wellness outcomes.
+            </p>
+            <div className={styles.benefitsGrid}>
+              {benefits.map((b) => (
+                <div key={b.label} className={styles.benefitBox}>
+                  <h4 className={styles.benefitLabel}>{b.label}</h4>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* ===== SECTION 6: GALLERY ===== */}
         <section className={styles.gallerySection} aria-labelledby="gallery-heading">
@@ -357,26 +352,23 @@ export default function UttarBastiPage() {
         </section>
 
         {/* ===== SECTION 7: WHY CHOOSE ===== */}
-          <section className={styles.whySection} aria-labelledby="why-heading">
-            <div className={styles.container}>
-              <h2 id="why-heading" className={`${styles.sectionTitle} ${styles.light}`}>Why Choose SNDH Care</h2>
-              <p className={`${styles.sectionSub} ${styles.light}`}>
-                At SNDH, healing is guided by the timeless principles of Ayurveda and
-                Naturopathy, offering a path to wellness that is natural, personalized, and
-                deeply rooted in balance. Whether it's fertility care, detox therapies, chronic
-                pain, or lifestyle support, we approach every condition as part of a larger whole
-                treating not just symptoms, but the person behind them.
-              </p>
-              <div className={styles.whyGrid}>
-                {whyChoose.map((w) => (
-                  <div key={w.title} className={styles.whyCard}>
-                    <h4 className={styles.whyTitle}>{w.title}</h4>
-                    <p className={styles.whyDesc}>{w.desc}</p>
-                  </div>
-                ))}
-              </div>
+        <section className={styles.whySection} aria-labelledby="why-heading">
+          <div className={styles.container}>
+            <h2 id="why-heading" className={`${styles.sectionTitle} ${styles.light}`}>Why Choose SNDH Care</h2>
+            <p className={`${styles.sectionSub} ${styles.light}`}>
+              At SNDH, we offer personalized Ayurvedic and Naturopathic care focused on supporting balance,
+               wellness, and overall health naturally.
+            </p>
+            <div className={styles.whyGrid}>
+              {whyChoose.map((w) => (
+                <div key={w.title} className={styles.whyCard}>
+                  <h4 className={styles.whyTitle}>{w.title}</h4>
+                  <p className={styles.whyDesc}>{w.desc}</p>
+                </div>
+              ))}
             </div>
-          </section>
+          </div>
+        </section>
 
         {/* ===== SECTION 8: FAQ ===== */}
         <section className={styles.faqSection} id="faq" aria-labelledby="faq-heading">
@@ -394,24 +386,24 @@ export default function UttarBastiPage() {
         </section>
 
         {/* ===== SECTION 9: LEAD BLOCK ===== */}
-          <section className={`${styles.leadSection} ${styles.pinkBg}`} aria-label="Book Consultation">
-            <div className={styles.container}>
-              <div className={styles.leadInner}>
-                <div className={styles.leadText}>
-                  <h2>Schedule Your Consultation</h2>
-                  <p>
-                    Take the first step towards your wellness journey. Our doctors will assess your individual
-                    needs and design a personalized care plan for you.
-                  </p>
-                  <a href="https://wa.me/917230074009" className={styles.btnWhatsapp} target="_blank" rel="noopener noreferrer">
-                    {whatsappSvg} WhatsApp Now
-                  </a>
-                </div>
-                <ConsultationForm />
+        <section className={`${styles.leadSection} ${styles.pinkBg}`} aria-label="Book Consultation">
+          <div className={styles.container}>
+            <div className={styles.leadInner}>
+              <div className={styles.leadText}>
+                <h2>Schedule Your Consultation</h2>
+                <p>
+                  Take the first step towards your wellness journey. Our doctors will assess your individual
+                  needs and design a personalized care plan for you.
+                </p>
+                <a href="https://wa.me/917230074009" className={styles.btnWhatsapp} target="_blank" rel="noopener noreferrer">
+                  {whatsappSvg} WhatsApp Now
+                </a>
               </div>
+              <ConsultationForm />
             </div>
-          </section>
-        </main>
+          </div>
+        </section>
+      </main>
 
       {/* ===== SECTION 10: FOOTER ===== */}
       <footer className={`${styles.footer} ${styles.darkSection}`} role="contentinfo">
@@ -452,15 +444,15 @@ export default function UttarBastiPage() {
             <h4 className={styles.footerHeading}>Google Map</h4>
             <div className={styles.footerMap}>
               <iframe
-                  src="https://www.google.com/maps?q=SNDH+Care,+Silviana+Apartment,+Athashri+Society+Rd,+near+GERA+REGENT+PARK,+Baner,+Pune,+Maharashtra+411069&output=embed"
-                  width="100%"
-                  height="160"
-                  style={{ border: 0, borderRadius: 8 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="SNDH Care Location"
-                />
+                src="https://www.google.com/maps?q=SNDH+Care,+Silviana+Apartment,+Athashri+Society+Rd,+near+GERA+REGENT+PARK,+Baner,+Pune,+Maharashtra+411069&output=embed"
+                width="100%"
+                height="160"
+                style={{ border: 0, borderRadius: 8 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="SNDH Care Location"
+              />
             </div>
             <div className={styles.socialLinks} style={{ marginTop: "1rem" }}>
               <a href="https://instagram.com/sndhcare" className={styles.socialBtn} aria-label="Instagram" target="_blank" rel="noopener noreferrer">

@@ -116,46 +116,55 @@
 .hero {
   background: var(--white);
   overflow: hidden;
-}
-.hero .container {
-  padding-inline: 0;
-  max-width: 100%;
-  height: 620px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 .heroInner {
   display: block;
+  overflow: hidden;
+  width: 100%;
+  line-height: 0;
+  font-size: 0;
+}
+.heroInner picture {
+  display: block;
+  width: 103%;
+  overflow: hidden;
+  line-height: 0;
+  font-size: 0;
 }
 .heroImg {
   width: 100%;
   height: 620px;
   display: block;
   border-radius: 0;
+  object-fit: cover;
 }
 
 @media (max-width: 600px) {
-  .hero {
+  .hero,
+  .heroInner,
+  .heroInner picture {
+    margin: 0 !important;
     padding: 0 !important;
-    margin: 0 !important;
-  }
-  .hero .container {
-    padding-inline: 0 !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    height: auto !important;
-    margin: 0 !important;
-  }
-  .heroInner {
-    padding: 0 !important;
-    margin: 0 !important;
-    height: auto !important;
     line-height: 0;
+    font-size: 0;
+    display: block;
+    width: 100%;
   }
   .heroImg {
-  width: 100%;
-  height: auto !important;
-  object-fit: contain;
-  display: block;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
+.main {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Lead form inputs (used in bottom lead section) */
@@ -180,13 +189,13 @@
 
 /* ===== SECTION 2: ABOUT ===== */
 .aboutSection {
-  padding: clamp(50px, 6vw, 90px) 0;
+  padding: clamp(10px, 6vw, 70px) 0;
   background: var(--pink-light-bg);
 }
 .aboutContent {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 10rem;
   margin-top: 2rem;
   align-items: start;
 }
@@ -195,7 +204,7 @@
   flex-direction: column;
 }
 .aboutLeft .sectionTitle {
-  text-align: center;
+  text-align: left;
 }
 .aboutLeft .sectionSub {
   text-align: left;
@@ -207,6 +216,7 @@
   line-height: 1.75;
   margin-bottom: 1rem;
   font-size: 1rem;
+  text-align: justify;
 }
 .aboutImgWrap {
   border-radius: var(--radius-lg);
@@ -219,6 +229,24 @@
   object-fit: cover;
   display: block;
   min-height: 320px;
+}
+
+@media (max-width: 768px) {
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 16px; /* adjust value to taste */
+  }
+  .aboutLeft .sectionTitle {
+    text-align: center;
+  }
+  .aboutLeft .sectionSub {
+    text-align: center;
+  }
+  .aboutText p {
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 /* ===== SECTION 3: VIDEO ===== */
@@ -315,25 +343,58 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .iconStripGrid {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
 /* ===== IMAGE LEFT SECTION ===== */
 .imageLeftSection {
-  padding: clamp(30px, 0, 50px) 0;
+  padding: clamp(50px, 4vw, 100px) 0;
   background: var(--white);
+  overflow: hidden;
 }
+.imageLeftImgWrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Shared base */
 .imageLeftImg {
-  width: 500%;
-  max-height: 900px;
-  height: auto;
-  object-fit: contain;
   display: block;
-  margin-left: calc(-1 * var(--gutter) - 390px);
-  margin-right: auto;
+  width: 100%;
+  height: auto;
+}
+
+/* Desktop image */
+.imageLeftImgDesktop {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* Mobile image — hidden on desktop */
+.imageLeftImgMobile {
+  display: none;
 }
 
 @media (max-width: 900px) {
-  .imageLeftImg {
+  .imageLeftImgDesktop {
+    display: none;
+  }
+
+  .imageLeftImgMobile {
+    display: block;
     width: 100%;
+    height: auto;
+    max-height: unset;
+    object-fit: contain;
     margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -366,6 +427,33 @@
 .wellnessChip:hover {
   background: var(--pink-light-bg);
   border-color: var(--pink-light-bg);
+}
+
+.wellnessSection .sectionTitle {
+  white-space: nowrap;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+}
+
+.wellnessSection .sectionSub {
+  white-space: nowrap;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+}
+
+@media (max-width: 768px) {
+  .wellnessSection {
+    padding: 40px 0;
+  }
+  .wellnessGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wellnessSection .sectionTitle {
+    white-space: normal;
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+  }
+  .wellnessSection .sectionSub {
+    white-space: normal;
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+  }
 }
 
 /* ===== SECTION 4: DOCTORS ===== */
@@ -432,6 +520,7 @@
 /* ===== SECTION 5: BENEFITS ===== */
 .benefitsSection {
   padding: clamp(50px, 6vw, 90px) 0;
+   text-align: center;
 }
 .benefitsGrid {
   display: grid;
@@ -449,6 +538,9 @@
   box-shadow: var(--shadow-card);
   border: 1.5px solid var(--border);
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .benefitBox:hover {
   border-color: var(--pink-hot);
@@ -456,7 +548,7 @@
   transform: translateY(-4px);
 }
 .benefitLabel {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--purple-deep);
   margin: 0;
@@ -531,11 +623,13 @@
   font-size: 1rem;
   color: var(--text-dark);
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 .whyDesc {
   font-size: 0.9rem;
   color: var(--text-dark);
   line-height: 1.6;
+  text-align: center;
 }
 
 .whySection .sectionSub {
@@ -606,8 +700,11 @@
   align-items: start;
   background: var(--white);
   border-radius: var(--radius-lg);
-  padding: 2.5rem 2rem;
+  padding: 4rem 2rem;
   box-shadow: var(--shadow-hover);
+  min-height: 300px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 .leadText h2 {
   font-family: var(--font-display);
@@ -624,6 +721,17 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+}
+
+@media (max-width: 768px) {
+  .leadSection {
+    padding: 40px 0;
+  }
+  .leadInner {
+    grid-template-columns: 1fr;
+    padding: 1rem 1.25rem;
+    gap: 1.0rem;
+  }
 }
 
 /* ===== SECTION 10: FOOTER ===== */
