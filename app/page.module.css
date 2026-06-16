@@ -108,9 +108,31 @@
   display: flex;
   align-items: center;
   height: 60px;
+  padding-left: 0px;
+  margin-left: 150px;
 }
 .logoLink { display: flex; align-items: center; }
-.logoImg { height: 70px; width: auto; }
+.logoImg { height: 80px; width: auto; }
+
+.navTagline {
+  display: none;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--primary, #563384);
+  margin-left: 10px;
+  letter-spacing: 0.5px;
+  padding-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .navInner {
+    justify-content: center;
+    margin-left: 0px;
+  }
+  .navTagline {
+    display: inline;
+  }
+}
 
 /* ===== SECTION 1: HERO ===== */
 .hero {

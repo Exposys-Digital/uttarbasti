@@ -129,11 +129,12 @@ export default function UttarBastiPage() {
       />
 
       {/* ===== NAVBAR ===== */}
-      <header className={styles.navbar} role="banner">
-        <div className={`${styles.container} ${styles.navInner}`}>
-          <img src="/images/sndh-logo.png" alt="SNDH Care Logo" className={styles.logoImg} width={90} height={40} />
-        </div>
-      </header>
+<header className={styles.navbar} role="banner">
+  <div className={`${styles.container} ${styles.navInner}`}>
+    <img src="/images/sndh-logo.png" alt="SNDH Care Logo" className={styles.logoImg} width={90} height={40} />
+    <span className={styles.navTagline}>Ayurvedic Clinic</span>
+  </div>
+</header>
 
       <main className={styles.main}>
 
