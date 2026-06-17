@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import styles from "./page.module.css";
 import ConsultationForm from './ConsultationForm'
 import PopupForm from './PopupForm'
+import VideoSection from './VideoSection'
 
 export const metadata: Metadata = {
   title: "Uttar Basti Therapy in Pune | SNDH Care – Specialized Ayurvedic Women's Wellness",
@@ -187,28 +188,7 @@ export default function UttarBastiPage() {
         </section>
 
         {/* ===== SECTION 3: VIDEO ===== */}
-        <section className={`${styles.videoSection} ${styles.darkSection}`} aria-labelledby="video-heading">
-          <div className={styles.container}>
-            <h2 id="video-heading" className={`${styles.sectionTitle} ${styles.pinkTitle}`}>
-              Understand Uttar Basti Therapy from Our Experts
-            </h2><br />
-            <div className={styles.videoWrap}>
-              <div className={styles.videoThumb}>
-                <img src="/images/video-thumbnail.jpg" alt="Doctor explaining Uttar Basti therapy" className={styles.videoThumbImg} />
-                <div className={styles.videoOverlay}>
-                  <button suppressHydrationWarning className={styles.playBtn} aria-label="Play video">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className={styles.videoCta}>
-              <a href="#lead-form" className={styles.btnPrimary}>Book Consultation</a>
-            </div>
-          </div>
-        </section>
+          <VideoSection />
 
         {/* ===== SECTION: ICON STRIP ===== */}
         <section className={styles.iconStrip} aria-label="Key Highlights">
