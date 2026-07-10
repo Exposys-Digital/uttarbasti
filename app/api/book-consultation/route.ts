@@ -3,18 +3,22 @@ import { sanityClient } from '@/lib/sanityClient'
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, mobile, preferredTime, page } = await req.json()
+    const { name, mobile, email, preferredTime, message } = await req.json()
 
     if (!name || !mobile) {
       return NextResponse.json({ error: 'Name and mobile required.' }, { status: 400 })
+    }
+    if (!/^\d{10}$/.test(mobile)) {
+      return NextResponse.json({ error: 'Invalid mobile number.' }, { status: 400 })
     }
 
     await sanityClient.create({
       _type: 'consultationBooking',
       name,
       mobile,
+      email: email || '',
       preferredTime: preferredTime || '',
-      page: page || 'uttar-basti',
+      message: message || '',
       submittedAt: new Date().toISOString(),
     })
 

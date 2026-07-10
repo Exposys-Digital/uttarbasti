@@ -8,21 +8,22 @@ const client = createClient({
   dataset: 'production',
   apiVersion: '2024-01-01',
   useCdn: false,
-  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
 })
 
 type Booking = {
   _id: string
   name: string
   mobile: string
+  email: string
   preferredTime: string
-  page: string
+  message: string
   submittedAt: string
 }
 
 export function ConsultationTable() {
   const [bookings, setBookings] = useState<Booking[]>([])
   const [loading, setLoading] = useState(true)
+  const [deletingId, setDeletingId] = useState<string | null>(null)
 
   const fetchBookings = async () => {
     const data = await client.fetch(
@@ -34,8 +35,20 @@ export function ConsultationTable() {
 
   const handleDelete = async (id: string) => {
     if (!confirm('Delete this entry?')) return
-    await client.delete(id)
-    setBookings((prev) => prev.filter((b) => b._id !== id))
+    setDeletingId(id)
+    try {
+      const res = await fetch('/api/delete-consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      })
+      if (!res.ok) throw new Error()
+      setBookings((prev) => prev.filter((b) => b._id !== id))
+    } catch {
+      alert('Failed to delete. Please try again.')
+    } finally {
+      setDeletingId(null)
+    }
   }
 
   useEffect(() => {
@@ -57,8 +70,9 @@ export function ConsultationTable() {
             <tr style={{ background: '#f3f4f6', textAlign: 'left' }}>
               <th style={th}>Name</th>
               <th style={th}>Mobile</th>
+              <th style={th}>Email</th>
               <th style={th}>Preferred Time</th>
-              <th style={th}>Source Page</th>
+              <th style={th}>Message</th>
               <th style={th}>Submitted At</th>
               <th style={th}>Action</th>
             </tr>
@@ -68,23 +82,26 @@ export function ConsultationTable() {
               <tr key={b._id} style={{ borderBottom: '1px solid #e5e7eb' }}>
                 <td style={td}>{b.name}</td>
                 <td style={td}>{b.mobile}</td>
+                <td style={td}>{b.email || '—'}</td>
                 <td style={td}>{b.preferredTime || '—'}</td>
-                <td style={td}>{b.page || '—'}</td>
+                <td style={{ ...td, maxWidth: '220px', whiteSpace: 'pre-wrap' }}>{b.message || '—'}</td>
                 <td style={td}>{b.submittedAt ? new Date(b.submittedAt).toLocaleString() : '—'}</td>
                 <td style={td}>
                   <button
                     onClick={() => handleDelete(b._id)}
+                    disabled={deletingId === b._id}
                     style={{
                       background: '#ef4444',
                       color: '#fff',
                       border: 'none',
                       borderRadius: '4px',
                       padding: '0.4rem 0.85rem',
-                      cursor: 'pointer',
+                      cursor: deletingId === b._id ? 'not-allowed' : 'pointer',
                       fontSize: '0.85rem',
+                      opacity: deletingId === b._id ? 0.6 : 1,
                     }}
                   >
-                    Delete
+                    {deletingId === b._id ? 'Deleting…' : 'Delete'}
                   </button>
                 </td>
               </tr>

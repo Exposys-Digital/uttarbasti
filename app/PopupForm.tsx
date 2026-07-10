@@ -6,15 +6,21 @@ import styles from './page.module.css'
 export default function PopupForm() {
   const [visible, setVisible] = useState(false)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [form, setForm] = useState({ name: '', mobile: '', preferredTime: '' })
+  const [form, setForm] = useState({ name: '', mobile: '', email: '', preferredTime: '', message: '' })
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 5000)
     return () => clearTimeout(timer)
   }, [])
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    if (name === 'mobile') {
+      const digitsOnly = value.replace(/\D/g, '').slice(0, 10)
+      setForm(prev => ({ ...prev, mobile: digitsOnly }))
+      return
+    }
+    setForm(prev => ({ ...prev, [name]: value }))
   }
 
   const handleSubmit = async () => {
@@ -22,16 +28,20 @@ export default function PopupForm() {
       alert('Please enter your name and mobile number.')
       return
     }
+    if (form.mobile.length !== 10) {
+      alert('Please enter a valid 10-digit mobile number.')
+      return
+    }
     setStatus('loading')
     try {
       const res = await fetch('/api/book-consultation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, page: 'uttar-basti-popup' }),
+        body: JSON.stringify(form),
       })
       if (!res.ok) throw new Error()
       setStatus('success')
-      setForm({ name: '', mobile: '', preferredTime: '' })
+      setForm({ name: '', mobile: '', email: '', preferredTime: '', message: '' })
     } catch {
       setStatus('error')
     }
@@ -58,6 +68,8 @@ export default function PopupForm() {
         maxWidth: '440px',
         position: 'relative',
         boxShadow: '0 8px 40px rgba(0,0,0,0.18)',
+        maxHeight: '90vh',
+        overflowY: 'auto',
       }}>
         {/* Close button */}
         <button
@@ -114,7 +126,7 @@ export default function PopupForm() {
               <input
                 type="text"
                 name="name"
-                placeholder="Your Name"
+                placeholder="Your Name *"
                 aria-label="Your Name"
                 value={form.name}
                 onChange={handleChange}
@@ -122,9 +134,19 @@ export default function PopupForm() {
               <input
                 type="tel"
                 name="mobile"
-                placeholder="Mobile Number"
+                placeholder="Mobile Number *"
                 aria-label="Mobile Number"
                 value={form.mobile}
+                onChange={handleChange}
+                inputMode="numeric"
+                maxLength={10}
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                aria-label="Email Address"
+                value={form.email}
                 onChange={handleChange}
               />
               <input
@@ -133,6 +155,14 @@ export default function PopupForm() {
                 placeholder="Preferred Time (e.g., Morning, Evening)"
                 aria-label="Preferred Time"
                 value={form.preferredTime}
+                onChange={handleChange}
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message (optional)"
+                aria-label="Message"
+                rows={3}
+                value={form.message}
                 onChange={handleChange}
               />
               <button

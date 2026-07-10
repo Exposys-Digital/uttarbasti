@@ -164,8 +164,8 @@
 }
 .heroCta {
   position: absolute;
-  bottom: 12%;
-  left: 16%;
+  bottom: 17%;
+  left: 22%;
   background: var(--pink-hot);
   color: var(--white);
   font-weight: 600;
@@ -776,10 +776,37 @@
   line-height: 1.75;
   margin-bottom: 1.5rem;
 }
+/* Lead form (used in bottom lead section) */
 .leadForm {
   display: flex;
   flex-direction: column;
   gap: 0;
+}
+.leadForm input,
+.leadForm textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background: var(--white);
+  margin-bottom: 0.85rem;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  display: block;
+  box-sizing: border-box;
+}
+.leadForm textarea {
+  resize: vertical;
+  min-height: 90px;
+  font-family: var(--font-body);
+}
+.leadForm input:focus,
+.leadForm textarea:focus {
+  border-color: var(--pink-hot);
+  box-shadow: 0 0 0 3px rgba(212, 0, 122, 0.1);
 }
 
 @media (max-width: 768px) {
