@@ -461,7 +461,7 @@
 .wellnessSection {
   padding: clamp(100px, 6vw, 90px) 0;
   background-color: var(--purple-mid);
-  background-image: url('/images/bk.png');
+  background-image: url('/images/bk.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -654,7 +654,7 @@
 .whySection {
   padding: clamp(50px, 6vw, 90px) 0;
   background-color: var(--purple-mid);
-  background-image: url('/images/bk.png');
+  background-image: url('/images/bk.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -699,7 +699,7 @@
 .faqSection {
   padding: clamp(50px, 6vw, 90px) 0;
   background-color: var(--white);
-  background-image: url('/images/faqbk.png');
+  background-image: url('/images/faqbk.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -90,14 +90,14 @@ const faqs = [
 ];
 
 const galleryImages = [
-  { src: "/images/gallery1.jpg", alt: "SNDH Care Reception Area" },
-  { src: "/images/gallery2.jpg", alt: "Consultation Room" },
-  { src: "/images/gallery3.jpg", alt: "Therapy Room" },
-  { src: "/images/gallery4.jpg", alt: "Panchakarma Setup" },
-  { src: "/images/gallery5.jpg", alt: "Waiting Lounge" },
-  { src: "/images/gallery6.jpg", alt: "Our Team" },
-  { src: "/images/gallery7.jpg", alt: "Ayurvedic Herbs" },
-  { src: "/images/gallery8.jpg", alt: "SNDH Care Clinic" },
+  { src: "/images/gallery1.webp", alt: "SNDH Care Reception Area" },
+  { src: "/images/gallery2.webp", alt: "Consultation Room" },
+  { src: "/images/gallery3.webp", alt: "Therapy Room" },
+  { src: "/images/gallery4.webp", alt: "Panchakarma Setup" },
+  { src: "/images/gallery5.webp", alt: "Waiting Lounge" },
+  { src: "/images/gallery6.webp", alt: "Our Team" },
+  { src: "/images/gallery7.webp", alt: "Ayurvedic Herbs" },
+  { src: "/images/gallery8.webp", alt: "SNDH Care Clinic" },
 ];
 
 const doctors = [
@@ -105,13 +105,13 @@ const doctors = [
     name: "Dr.Supriya Pawar",
     qual: ["B.A.M.S", "M.S (ENT & HEAD)", "M.S (Gynaec)"],
     spec: "Ayurvedic Women's Health Specialist",
-    img: "/images/Doctor.jpg",
+    img: "/images/Doctor.webp",
   },
   {
     name: "Dr. Yogita Jethava",
     qual: ["M.D. (Ayu.)"],
     spec: "Ayurvedic Women's Health Specialist",
-    img: "/images/Dr-Yogita.jpg",
+    img: "/images/Dr-Yogita.webp",
   },
 ];
 
@@ -132,7 +132,7 @@ export default function UttarBastiPage() {
       {/* ===== NAVBAR ===== */}
 <header className={styles.navbar} role="banner">
   <div className={`${styles.container} ${styles.navInner}`}>
-    <img src="/images/sndh-logo.png" alt="SNDH Care Logo" className={styles.logoImg} width={90} height={40} />
+    <img src="/images/sndh-logo.webp" alt="SNDH Care Logo" className={styles.logoImg} width={90} height={40} />
     <span className={styles.navTagline}>Ayurvedic Clinic</span>
   </div>
 </header>
@@ -143,9 +143,9 @@ export default function UttarBastiPage() {
           <section className={styles.hero} aria-label="Hero">
             <div className={styles.heroInner}>
               <picture>
-                <source media="(max-width: 600px)" srcSet="/images/HeroSNDHMobileUI.png" />
+                <source media="(max-width: 600px)" srcSet="/images/HeroSNDHMobileUI.webp" />
                 <img
-                  src="/images/HeroSNDH.png"
+                  src="/images/HeroSNDH.webp"
                   alt="SNDH Care Ayurvedic Wellness"
                   className={styles.heroImg}
                 />
@@ -178,7 +178,7 @@ export default function UttarBastiPage() {
               </div>
               <div className={styles.aboutImgWrap}>
                 <img
-                  src="/images/about-uttar-basti.jpg"
+                  src="/images/about-uttar-basti.webp"
                   alt="Uttar Basti Ayurvedic therapy at SNDH Care"
                   className={styles.aboutImg}
                 />
@@ -196,7 +196,7 @@ export default function UttarBastiPage() {
             <div className={styles.iconStripGrid}>
               <div className={styles.iconStripItem}>
                 <img
-                  src="/images/doctorguidance.jpg"
+                  src="/images/doctorguidance.webp"
                   alt="Doctor Guidance"
                   className={styles.iconStripImg}
                   width={80}
@@ -206,7 +206,7 @@ export default function UttarBastiPage() {
               </div>
               <div className={styles.iconStripItem}>
                 <img
-                  src="/images/personalizedtreatment.jpg"
+                  src="/images/personalizedtreatment.webp"
                   alt="Personalized Wellness Plans"
                   className={styles.iconStripImg}
                   width={80}
@@ -216,7 +216,7 @@ export default function UttarBastiPage() {
               </div>
               <div className={styles.iconStripItem}>
                 <img
-                  src="/images/rootednature.jpg"
+                  src="/images/rootednature.webp"
                   alt="Holistic Approach"
                   className={styles.iconStripImgNoFilter}
                   width={80}
@@ -234,13 +234,13 @@ export default function UttarBastiPage() {
     <div className={styles.imageLeftImgWrap}>
       {/* Desktop image */}
       <img
-        src="/images/Uttar Basti-SNDH Banerwebpage.png"
+        src="/images/Uttar Basti-SNDH Banerwebpage.webp"
         alt="Uttar Basti procedure setup at SNDH Care"
         className={`${styles.imageLeftImg} ${styles.imageLeftImgDesktop}`}
       />
       {/* Mobile image */}
       <img
-        src="/images/Uttar Basti - SNDH Baner.png"
+        src="/images/Uttar Basti - SNDH Baner.webp"
         alt="Uttar Basti procedure setup at SNDH Care"
         className={`${styles.imageLeftImg} ${styles.imageLeftImgMobile}`}
       />
